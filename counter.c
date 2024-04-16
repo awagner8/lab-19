@@ -7,6 +7,9 @@ static volatile int counter = 0;
 
 // add any global declarations here
 // Hint: Declare your lock here
+pthread_mutex_t lock;
+
+
 
 
 // This routine will be called twice and 
@@ -16,10 +19,18 @@ void *thread_count(void *args) {
   printf("%s: begin\n", (char *) args);
   print_thread_info();
   // Add your code below
+  // Lock the mutex
+  pthread_mutex_lock(&lock);
+
+
 
   for (int i = 0; i < 10000000; i++) {
       counter = counter + 1;
   }
+
+  // Unlock the mutex
+  pthread_mutex_unlock(&lock);
+  
   
   // Add your code above
   printf("%ld done\n",Thread_gettid());

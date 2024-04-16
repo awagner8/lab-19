@@ -1,0 +1,7 @@
+A: begin
+B: begin
+pid 1425847 tid 1425848
+pid 1425847 tid 1425849
+1425848 done
+1425849 done
+main: result 20000000
